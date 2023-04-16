@@ -15,8 +15,9 @@ class FriendsService {
     if (friendList) {
       const { requests } = friendList;
       if (requests.includes(username)) return false;
-      const request = await Friends.updateOne({ _id: requestUsername }, { requests: [...requests, username] });
-      return request;
+      await Friends.updateOne({ _id: requestUsername }, { requests: [...requests, username] });
+      const newFriendList = await Friends.findById(requestUsername);
+      return newFriendList;
     }
   }
 };

@@ -1,8 +1,10 @@
 import { Inter } from 'next/font/google';
 import { io, Socket } from 'socket.io-client';
 import { Cookies } from 'react-cookie';
+import RequestList from './Components/RequestList';
 import { MouseEvent, useEffect, useState } from 'react';
 import { PaperAirplaneIcon, UserCircleIcon, Bars3Icon, PlusCircleIcon } from '@heroicons/react/20/solid';
+import FriendList from './Components/FriendList';
 
 
 const inter = Inter({ subsets: ['latin'] });
@@ -17,7 +19,9 @@ export default function Home() {
   const [failRequest, setFailRequest] = useState<String>();
   const [sucessRequest, setSucessRequest] = useState<String>();
 
-  useEffect(() => { socketInitializer(); }, []);
+  useEffect(() => {
+    socketInitializer();
+  }, []);
 
   const socketInitializer = async () => {
     const cookies = new Cookies();
@@ -71,18 +75,12 @@ export default function Home() {
           </div>
           <div className="flex-none h-12 p-2 border-b-2">
             <div className="flex items-center gap-4 w-full h-full">
-              <input type="text" name="" id="" placeholder="Send friend request" className="w-full h-full rounded-lg border-0 py-1.5 pl-2 text-gray-900 ring-1 ring-inset ring-gray-300 focus:border-0" onChange={(e) => setRequestInput(e.target.value)} />
-              <button onClick={ (e) => handleAdd(e) }>
-                <PlusCircleIcon className="h-6 w-6 text-gray-500" />
-              </button>
+              <button>Friends</button>
+              <button>Requests</button>
             </div>
-            { <span className='c'>{ failRequest }</span> }
-            { <span>{ sucessRequest }</span> }
           </div>
-          <div>
-            { !requestList ? <></> : requestList.map((request, i) => <p key={i}>{ request }</p>) }
-            { !friendList ? <></> : friendList.map((friend, i) => <p key={i}>{ friend }</p>) }
-          </div>
+          <RequestList setRequestInput={ setRequestInput } handleAdd={ handleAdd } failRequest={ failRequest } sucessRequest={ sucessRequest } requestList={ requestList } />
+          <FriendList setSearchFriendInput={ () => {} } friendList={ friendList }  />
         </section>
         <section className="flex flex-col w-4/5">
           <div className="flex-none h-16 bg-slate-100 px-10 py-2">

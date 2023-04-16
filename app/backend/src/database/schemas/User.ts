@@ -4,7 +4,11 @@ const User = new mongoose.Schema({
   username: {
     type: String,
     required: true,
-    unique: true
+    unique: true,
+  },
+  socketId: {
+    type: String,
+    default: '',
   },
   email: {
     type: String,

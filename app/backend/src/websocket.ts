@@ -6,9 +6,10 @@ import UserService from './services/user.service';
 
 io.on('connection', (socket) => {
   socket.on('login', async (data) => {
-    const { token } = data
+    const { token } = data;
     if (token) {
       const { username }: ITokenPayload = jwt_decode(token);
+      await UserService.insertSocketId(socket.id, username);
       const friendListExist = await FriendsService.getFriendList(username);
       if (!friendListExist) {
         await FriendsService.createUserFriendList(username);
@@ -29,9 +30,12 @@ io.on('connection', (socket) => {
           if (!friendListExist) {
             await FriendsService.createUserFriendList(requestUsername);
           }
-          const request = await FriendsService.addRequest(username, requestUsername);
-          if (!request) socket.emit('requestAlreadySent');
-          if (request) socket.emit('requestSent');
+          const newFriendList = await FriendsService.addRequest(username, requestUsername);
+          if (!newFriendList) socket.emit('requestAlreadySent');
+          if (newFriendList) {
+            socket.emit('requestSent');
+            io.to(isValidUser.socketId).emit('friendList', { friendList: newFriendList });
+          }
         }
       }
     }
