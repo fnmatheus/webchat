@@ -18,6 +18,7 @@ export default function Home() {
   const [requestInput, setRequestInput] = useState<String>();
   const [failRequest, setFailRequest] = useState<String>();
   const [sucessRequest, setSucessRequest] = useState<String>();
+  const [chatOrRequest, setChatOrRequest] = useState<Boolean>(true);
 
   useEffect(() => {
     socketInitializer();
@@ -59,6 +60,10 @@ export default function Home() {
     socket?.emit('friendRequest', { requestUsername: requestInput, token });
   };
 
+  const handleChatOrRequest = async (chatOrRequest: Boolean) => {
+    setChatOrRequest(chatOrRequest);
+  }
+
   return (
     <main className="h-screen bg-indigo-700 px-40 py-6">
       <div className="flex h-full bg-white">
@@ -75,12 +80,15 @@ export default function Home() {
           </div>
           <div className="flex-none h-12 p-2 border-b-2">
             <div className="flex items-center gap-4 w-full h-full">
-              <button>Friends</button>
-              <button>Requests</button>
+              <button onClick={ () => handleChatOrRequest(true) }>Chats</button>
+              <button onClick={ () => handleChatOrRequest(false) }>Requests</button>
             </div>
           </div>
-          <RequestList setRequestInput={ setRequestInput } handleAdd={ handleAdd } failRequest={ failRequest } sucessRequest={ sucessRequest } requestList={ requestList } />
-          <FriendList setSearchFriendInput={ () => {} } friendList={ friendList }  />
+          {
+            (chatOrRequest)
+              ? <FriendList setSearchFriendInput={ () => {} } friendList={ friendList }  />
+              : <RequestList setRequestInput={ setRequestInput } handleAdd={ handleAdd } failRequest={ failRequest } sucessRequest={ sucessRequest } requestList={ requestList } />
+          }
         </section>
         <section className="flex flex-col w-4/5">
           <div className="flex-none h-16 bg-slate-100 px-10 py-2">
