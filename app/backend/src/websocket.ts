@@ -1,5 +1,5 @@
 import { io } from './app';
-import { ITokenPayload } from './interfaces';
+import { IAcceptRequest, ITokenPayload } from './interfaces';
 import jwt_decode from 'jwt-decode';
 import FriendsService from './services/friends.service';
 import UserService from './services/user.service';
@@ -40,4 +40,19 @@ io.on('connection', (socket) => {
       }
     }
   });
+  socket.on('acceptRequest', async (data) => {
+    const { token, requestUsername } = data;
+    if (token) {
+      const { username }: ITokenPayload = jwt_decode(token);
+      const isValidUser = await UserService.findUser(username);
+      const isValidRequestUser = await UserService.findUser(requestUsername);
+      const response = await FriendsService.acceptRequest(username, requestUsername);
+      if (response && isValidUser && isValidRequestUser) {
+        const { newRequestFriendList, newUserFriendList } = response;
+        io.to(isValidUser.socketId).emit('friendList', { friendList: newUserFriendList });
+        io.to(isValidRequestUser.socketId).emit('friendList', { friendList: newRequestFriendList });
+      }
+    }
+  });
+  socket.on('declineRequest', async () => {});
 });

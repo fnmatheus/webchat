@@ -1,6 +1,6 @@
 import { Inter } from 'next/font/google';
 
-import { PlusCircleIcon } from '@heroicons/react/20/solid';
+import { PlusCircleIcon, CheckCircleIcon, XCircleIcon, UserCircleIcon } from '@heroicons/react/20/solid';
 import { IRequestListProps } from '@/interfaces';
 
 
@@ -20,7 +20,26 @@ export default function RequestList(props: IRequestListProps) {
         { <span className='text-xs text-lime-500' >{ props.sucessRequest }</span> }
       </div>
       <div>
-        { !props.requestList ? <></> : props.requestList.map((request, i) => <p key={i}>{ request }</p>) }
+        {
+          !props.requestList
+            ? <></>
+            : props.requestList.map((request, i) => (
+              <div className="flex p-2 w-full justify-between" key={i}>
+                <div className="flex items-center">
+                  <UserCircleIcon className="h-10 w-10 text-gray-500 mr-2" />
+                  <p>{ request }</p>
+                </div>
+                <div className="flex items-center">
+                  <button onClick={ () => props.handleAccept(request) } className="mr-1">
+                    <CheckCircleIcon className="h-8 w-8 text-lime-500" />
+                  </button>
+                  <button onClick={ () => props.handleDecline() } className="ml-1">
+                    <XCircleIcon className="h-8 w-8 text-red-600" />
+                  </button>
+                </div>
+              </div>
+            ))
+        }
       </div>
     </main>
   );

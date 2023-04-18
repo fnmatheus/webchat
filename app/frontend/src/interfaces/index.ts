@@ -4,9 +4,11 @@ export interface IRequestListProps {
   failRequest: String | undefined,
   sucessRequest: String | undefined,
   requestList: [String] | undefined,
+  handleAccept: Function,
+  handleDecline: Function,
 }
 
 export interface IFriendListProps {
-  setSearchFriendInput: Function,
   friendList: [String] | undefined,
+  setSearchFriendInput: Function,
 }

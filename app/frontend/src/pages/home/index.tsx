@@ -62,10 +62,18 @@ export default function Home() {
 
   const handleChatOrRequest = async (chatOrRequest: Boolean) => {
     setChatOrRequest(chatOrRequest);
+    setSucessRequest('');
+    setFailRequest('');
   }
 
+  const handleAccept = async (requestUsername: String) => {
+    socket?.emit('acceptRequest', { token, requestUsername })
+  }
+
+  const handleDecline = async() => {}
+
   return (
-    <main className="h-screen bg-indigo-700 px-40 py-6">
+    <main className="h-screen bg-indigo-700 text-black px-40 py-6">
       <div className="flex h-full bg-white">
         <section className="flex flex-col w-1/5 border-r-2 border-slate-200">
           <div className="flex-none h-16 bg-slate-100 p-2">
@@ -79,15 +87,19 @@ export default function Home() {
             </div>
           </div>
           <div className="flex-none h-12 p-2 border-b-2">
-            <div className="flex items-center gap-4 w-full h-full">
-              <button onClick={ () => handleChatOrRequest(true) }>Chats</button>
-              <button onClick={ () => handleChatOrRequest(false) }>Requests</button>
+            <div className="flex items-center justify-around gap-4 w-full h-full">
+              <div className={`flex items-center justify-center h-8 w-1/3 rounded-lg ${(!chatOrRequest) ? `text-gray-500 border-2` : `text-white bg-indigo-600`}`}>
+                <button className="w-full h-full" onClick={ () => handleChatOrRequest(true) }>Chats</button>
+              </div>
+              <div className={`flex items-center justify-center h-8 w-1/3 rounded-lg ${(chatOrRequest) ? `text-gray-500 border-2` : `text-white bg-indigo-600`}`}>
+                <button className="w-full h-full" onClick={ () => handleChatOrRequest(false) }>Requests</button>
+              </div>
             </div>
           </div>
           {
             (chatOrRequest)
               ? <FriendList setSearchFriendInput={ () => {} } friendList={ friendList }  />
-              : <RequestList setRequestInput={ setRequestInput } handleAdd={ handleAdd } failRequest={ failRequest } sucessRequest={ sucessRequest } requestList={ requestList } />
+              : <RequestList setRequestInput={ setRequestInput } handleAdd={ handleAdd } failRequest={ failRequest } sucessRequest={ sucessRequest } requestList={ requestList } handleAccept={ handleAccept } handleDecline={ handleDecline } />
           }
         </section>
         <section className="flex flex-col w-4/5">

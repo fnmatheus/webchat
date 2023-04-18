@@ -1,6 +1,5 @@
 import { Inter } from 'next/font/google';
-
-import { MagnifyingGlassIcon } from '@heroicons/react/20/solid';
+import { MagnifyingGlassIcon, UserCircleIcon } from '@heroicons/react/20/solid';
 import { IFriendListProps } from '@/interfaces';
 
 
@@ -16,7 +15,20 @@ export default function FriendList(props: IFriendListProps) {
         </div>
       </div>
       <div>
-      { !props.friendList ? <></> : props.friendList.map((friend, i) => <p key={i}>{ friend }</p>) }
+      {
+        !props.friendList
+          ? <></>
+          : props.friendList.map((friend, i) => (
+              <div key={i} className="flex p-2 w-full justify-between">
+                <button>
+                  <div className="flex items-center">
+                    <UserCircleIcon className="h-10 w-10 text-gray-500 mr-2" />
+                    <p>{ friend }</p>
+                  </div>
+                </button>
+              </div>
+            ))
+      }
       </div>
     </main>
   );
