@@ -71,7 +71,11 @@ export default function Home() {
                   onChange={(e) => setPassword(e.target.value)}
                 />
               </div>
-              { (error) ? <span>{ `${error}` }</span> : '' }
+              {
+                (!error)
+                  ? <></> 
+                  : <span className="text-xs text-red-500">{ `${error}` }</span>
+              }
             </div>
 
             <div className="flex items-center justify-between">

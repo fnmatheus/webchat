@@ -81,8 +81,16 @@ export default function SignUp() {
                   onChange={(e) => setPassword(e.target.value)}
                 />
               </div>
-              { (error) ? <span>{ error }</span> : <></> }
-              { (sucess) ? <span>{ sucess }</span> : <></> }
+              {
+                (!error)
+                  ? <></>
+                  : <span className="text-xs text-red-500">{ error }</span>
+              }
+              {
+                (!sucess)
+                  ? <></>
+                  : <span className="text-xs text-lime-500">{ sucess }</span> 
+              }
             </div>
 
             <div>
