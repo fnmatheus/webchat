@@ -73,7 +73,7 @@ export default function Home() {
   const handleDecline = async() => {}
 
   return (
-    <main className="h-screen bg-indigo-700 text-black px-40 py-6">
+    <main className="h-screen bg-purple-1000 text-black px-40 py-6">
       <div className="flex h-full bg-white">
         <section className="flex flex-col w-1/5 border-r-2 border-slate-200">
           <div className="flex-none h-16 bg-slate-100 p-2">
@@ -88,10 +88,10 @@ export default function Home() {
           </div>
           <div className="flex-none h-12 p-2 border-b-2">
             <div className="flex items-center justify-around gap-4 w-full h-full">
-              <div className={`flex items-center justify-center h-8 w-1/3 rounded-lg ${(!chatOrRequest) ? `text-gray-500 border-2` : `text-white bg-indigo-600`}`}>
+              <div className={`flex items-center justify-center h-8 w-1/3 rounded-lg ${(!chatOrRequest) ? `text-gray-500 border-2` : `text-white bg-purple-1000`}`}>
                 <button className="w-full h-full" onClick={ () => handleChatOrRequest(true) }>Chats</button>
               </div>
-              <div className={`flex items-center justify-center h-8 w-1/3 rounded-lg ${(chatOrRequest) ? `text-gray-500 border-2` : `text-white bg-indigo-600`}`}>
+              <div className={`flex items-center justify-center h-8 w-1/3 rounded-lg ${(chatOrRequest) ? `text-gray-500 border-2` : `text-white bg-purple-1000`}`}>
                 <button className="w-full h-full" onClick={ () => handleChatOrRequest(false) }>Requests</button>
               </div>
             </div>
