@@ -86,12 +86,12 @@ export default function Home() {
               </button>
             </div>
           </div>
-          <div className="flex-none h-12 p-2 border-b-2">
+          <div className="flex-none h-12 p-2">
             <div className="flex items-center justify-around gap-4 w-full h-full">
-              <div className={`flex items-center justify-center h-8 w-1/3 rounded-lg ${(!chatOrRequest) ? `text-gray-500 border-2` : `text-white bg-purple-1000`}`}>
+              <div className={`flex items-center justify-center h-6 w-20 border-b-2 ${(!chatOrRequest) ? `border-slate-500 text-slate-700` : `border-purple-1000 text-purple-1000`} hover:border-purple-800 hover:text-purple-800`}>
                 <button className="w-full h-full" onClick={ () => handleChatOrRequest(true) }>Chats</button>
               </div>
-              <div className={`flex items-center justify-center h-8 w-1/3 rounded-lg ${(chatOrRequest) ? `text-gray-500 border-2` : `text-white bg-purple-1000`}`}>
+              <div className={`flex items-center justify-center h-6 w-20 border-b-2 ${(chatOrRequest) ? `border-slate-500 text-slate-700` : `border-purple-1000 text-purple-1000`} hover:border-purple-800 hover:text-purple-800`}>
                 <button className="w-full h-full" onClick={ () => handleChatOrRequest(false) }>Requests</button>
               </div>
             </div>
