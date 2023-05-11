@@ -5,6 +5,7 @@ import RequestList from './Components/RequestList';
 import { MouseEvent, useEffect, useState } from 'react';
 import { PaperAirplaneIcon, UserCircleIcon, Bars3Icon, PlusCircleIcon } from '@heroicons/react/20/solid';
 import FriendList from './Components/FriendList';
+import SideBar from './Components/SibeBar';
 
 
 const inter = Inter({ subsets: ['latin'] });
@@ -19,6 +20,7 @@ export default function Home() {
   const [failRequest, setFailRequest] = useState<String>();
   const [sucessRequest, setSucessRequest] = useState<String>();
   const [chatOrRequest, setChatOrRequest] = useState<Boolean>(true);
+  const [sideBar, setSideBar] = useState<Boolean>(false);
 
   useEffect(() => {
     socketInitializer();
@@ -72,24 +74,27 @@ export default function Home() {
 
   const handleDecline = async() => {}
 
+  const handleSideBar = async() => setSideBar(!sideBar);
+
   return (
     <main className="h-screen bg-purple-1000 text-black px-40 py-6">
       <div className="flex h-full bg-white">
         <section className="flex flex-col w-1/5 border-r-2 border-slate-200">
-          <div className="flex-none h-16 bg-slate-100 p-2">
+          <div className="flex-none h-16 bg-slate-100 p-2 relative">
             <div className="flex items-center justify-between gap-4 w-full h-full">
               <button>
                 <UserCircleIcon className="h-10 w-10 text-gray-500" />
               </button>
-              <button>
+              <button onClick={ () => handleSideBar() }>
                 <Bars3Icon className="h-6 w-6 text-gray-500" />
               </button>
             </div>
+            { !sideBar ? <></> : <SideBar /> }
           </div>
           <div className="flex-none h-12 p-2">
             <div className="flex items-center justify-around gap-4 w-full h-full">
               <div className={`flex items-center justify-center h-6 w-20 border-b-2 ${(!chatOrRequest) ? `border-slate-500 text-slate-700` : `border-purple-1000 text-purple-1000`} hover:border-purple-800 hover:text-purple-800`}>
-                <button className="w-full h-full" onClick={ () => handleChatOrRequest(true) }>Chats</button>
+                <button className="w-full h-full" onClick={ () => handleChatOrRequest(true) }>WebChats</button>
               </div>
               <div className={`flex items-center justify-center h-6 w-20 border-b-2 ${(chatOrRequest) ? `border-slate-500 text-slate-700` : `border-purple-1000 text-purple-1000`} hover:border-purple-800 hover:text-purple-800`}>
                 <button className="w-full h-full" onClick={ () => handleChatOrRequest(false) }>Requests</button>
