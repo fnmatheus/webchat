@@ -47,7 +47,7 @@ Tabela de conteúdos
 O layout da aplicação está disponível no Figma:
 
 
-**[Acessar Figma]()**
+**[Acessar Figma](https://www.figma.com/file/YZwqjkUv4kkD1XAkMTnFPI/WebChat)**
 
 ### Mobile
 
@@ -65,7 +65,7 @@ As seguintes ferramentas foram usadas na construção do projeto:
 
 #### **Utilitários**
 
--   Protótipo:  **[Figma](https://www.figma.com/)**  →  **[Protótipo (Portifolio)](https://www.figma.com/file/FF7Sa8JZZFZwZkCvsklmXH/Portifolio)**
+-   Protótipo:  **[Figma](https://www.figma.com/)**  →  **[Protótipo (Portifolio)](https://www.figma.com/file/YZwqjkUv4kkD1XAkMTnFPI/WebChat)**
 -   Editor:  **[Visual Studio Code](https://code.visualstudio.com/)**
 -   Ícones:  **[Font Awesome](https://fontawesome.com/)**
 -   Fontes:  **[Amiko](https://fonts.google.com/specimen/Amiko)**
