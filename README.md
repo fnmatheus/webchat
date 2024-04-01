@@ -2,7 +2,7 @@
   <img src="./public/logo.svg" height="100"/>
 </p>
 <h1 align="center">💬 WebChat</h1>
-<h2 align="center">Portifolio para expor projetos e habilidades</h2>
+<h2 align="center">Chat de conversas instantâneas</h2>
 
 <h4 align="center"> 
 	🚧 WebChat 🚀 Em construção... 🚧
