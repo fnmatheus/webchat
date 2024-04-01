@@ -29,16 +29,16 @@ Tabela de conteúdos
 
 ## ⚙️ Funcionalidades
 
-- [x] Adicionar amigos
-  - [x] enviar pedidios de amizade
-  - [x] aceitar ou recusar os pedidios de amizade
+- [ ] Adicionar amigos
+  - [ ] enviar pedidios de amizade
+  - [ ] aceitar ou recusar os pedidios de amizade
 
-- [x] Conversas individuais:
-  - [x] mandar texto e arquivos para um amigo
+- [ ] Conversas individuais:
+  - [ ] mandar texto e arquivos para um amigo
      
-- [x] Conversas em grupos:
-  - [x] criar grupos para conversar com amigos de forma semelhante as conversas individuais
-  - [x] aceitar ou recusar convites para grupos
+- [ ] Conversas em grupos:
+  - [ ] criar grupos para conversar com amigos de forma semelhante as conversas individuais
+  - [ ] aceitar ou recusar convites para grupos
 
 ---
 
