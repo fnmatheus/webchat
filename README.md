@@ -1,0 +1,96 @@
+<p align="center">
+  <img src="./public/logo.svg" height="100"/>
+</p>
+<h1 align="center">💬 WebChat</h1>
+<h2 align="center">Portifolio para expor projetos e habilidades</h2>
+
+<h4 align="center"> 
+	🚧 WebChat 🚀 Em construção... 🚧
+</h4>
+
+Tabela de conteúdos
+=================
+<!--ts-->
+   * [Sobre o projeto](#-sobre-o-projeto)
+   * [Funcionalidades](#-funcionalidades)
+   * [Layout](#-layout)
+     * [Mobile](#mobile)
+     * [Web](#web)
+   * [Tecnologias](#-tecnologias)
+   * [Autor](#-autor)
+   * [Licença](#user-content--licença)
+<!--te-->
+
+## 💻 Sobre o projeto
+
+💬 WebChat - é um sistema de troca de mensagens instantânea por meio da internet, semelhante ao whatsapp e direct do instagram.
+
+---
+
+## ⚙️ Funcionalidades
+
+- [x] Adicionar amigos
+  - [x] enviar pedidios de amizade
+  - [x] aceitar ou recusar os pedidios de amizade
+
+- [x] Conversas individuais:
+  - [x] mandar texto e arquivos para um amigo
+     
+- [x] Conversas em grupos:
+  - [x] criar grupos para conversar com amigos de forma semelhante as conversas individuais
+  - [x] aceitar ou recusar convites para grupos
+
+---
+
+## 🎨 Layout
+
+O layout da aplicação está disponível no Figma:
+
+
+**[Acessar Figma]()**
+
+### Mobile
+
+### Web
+
+---
+
+## 🛠 Tecnologias
+
+As seguintes ferramentas foram usadas na construção do projeto:
+
+#### **Website**  ([Next.js](https://nextjs.org/)  +  [TypeScript](https://www.typescriptlang.org/))
+
+#### **API**  ([Nestjs](https://nestjs.com/)  +  [MongoDB](https://www.mongodb.com/pt-br))
+
+#### **Utilitários**
+
+-   Protótipo:  **[Figma](https://www.figma.com/)**  →  **[Protótipo (Portifolio)](https://www.figma.com/file/FF7Sa8JZZFZwZkCvsklmXH/Portifolio)**
+-   Editor:  **[Visual Studio Code](https://code.visualstudio.com/)**
+-   Ícones:  **[Font Awesome](https://fontawesome.com/)**
+-   Fontes:  **[Amiko](https://fonts.google.com/specimen/Amiko)**
+
+
+---
+
+## 🙋‍♂️ Autor
+
+<a href="https://github.com/fnmatheus">
+ <img style="border-radius: 50%;" src="https://avatars.githubusercontent.com/u/100846027?v=4" width="100px;" alt=""/>
+ <br />
+ <p>Matheus Nascimento</p>
+ <br />
+</a>
+
+[![Linkedin Badge](https://img.shields.io/badge/-Matheus-blue?style=flat-square&logo=Linkedin&logoColor=white&link=https://www.linkedin.com/in/fnmatheus/)](https://www.linkedin.com/in/fnmatheus/) 
+[![Gmail Badge](https://img.shields.io/badge/-nasc.matheusfrancisco@gmail.com-c14438?style=flat-square&logo=Gmail&logoColor=white&link=mailto:nasc.matheusfrancisco@gmail.com)](mailto:nasc.matheusfrancisco@gmail.com)
+
+---
+
+## 📝 Licença
+
+Este projeto esta sobe a licença [MIT](./LICENSE).
+
+Feito por Matheus Nascimento 👋🏽 [Entre em contato!](https://www.linkedin.com/in/fnmatheus/)
+
+---
