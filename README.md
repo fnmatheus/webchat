@@ -51,7 +51,15 @@ O layout da aplicação está disponível no Figma:
 
 ### Mobile
 
+<p align="center">
+  <img alt="MobilePhoto" src="./public/mobile.png" width="200px">
+</p>
+
 ### Web
+
+<p align="center">
+  <img alt="MobilePhoto" src="./public/desktop.png" width="200px">
+</p>
 
 ---
 
